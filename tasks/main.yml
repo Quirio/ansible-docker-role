@@ -9,6 +9,11 @@
     name: apt-transport-https 
     state: latest
 
+- name: install ca-certificates
+  package:
+    name: ca-certificates
+    state: latest
+
 - name: install docker
   pip:
     name: docker-py
