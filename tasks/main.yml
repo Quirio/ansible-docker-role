@@ -4,6 +4,11 @@
     upgrade: dist
     update_cache: yes
 
+- name: install apt-transport-https
+  package:
+    name: apt-transport-https 
+    state: latest
+
 - name: install docker
   pip:
     name: docker-py
