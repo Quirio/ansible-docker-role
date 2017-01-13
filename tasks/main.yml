@@ -4,6 +4,13 @@
     upgrade: dist
     update_cache: yes
 
+- name: adding repository 
+  lineinfile:
+    dest: /etc/apt/sources.list.d/docker.list
+    regexp: '{{ repository }}'
+    state: absent
+  notify: add_repo
+    
 - name: install apt-transport-https
   package:
     name: apt-transport-https 
@@ -14,7 +21,17 @@
     name: ca-certificates
     state: latest
 
-- name: install docker
+- name: add key
+  apt_key:
+    keyserver: hkp://ha.pool.sks-keyservers.net:80 
+    id: 58118E89F3A912897C070ADBF76221572C52609D 
+
+- name: install docker-engine
+  package:
+    name: docker-engine
+    state: latest 
+
+- name: install docker-py
   pip:
     name: docker-py
     state: latest
