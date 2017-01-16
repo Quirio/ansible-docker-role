@@ -17,7 +17,7 @@
     state: present
   notify: add_repo
   
-- name: install apt-transport-https
+- name: install apt-transport-httpss 
   package:
     name: apt-transport-https 
     state: latest
