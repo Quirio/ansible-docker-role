@@ -6,8 +6,9 @@
 
 - name: create docker.list
   file:
-    path: /etc/apt/sources.list.d/docker.list
-    state: touch
+    path: '{{ docker_list_path }}'
+  when: result|failed
+  notify: create docker.list_handler
 
 - name: adding repository 
   lineinfile:
@@ -61,3 +62,8 @@
     groups: docker
     append: yes
 
+- name: initiating docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: true
