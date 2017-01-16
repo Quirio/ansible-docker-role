@@ -4,11 +4,17 @@
     upgrade: dist
     update_cache: yes
 
+- name: if not exist docker.list
+  file:
+    path: '{{ docker_list_path }}'
+  register: result
+  ignore_errors: true
+
 - name: create docker.list
   file:
     path: '{{ docker_list_path }}'
+    state: touch
   when: result|failed
-  notify: create docker.list_handler
 
 - name: adding repository 
   lineinfile:
