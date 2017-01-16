@@ -38,19 +38,15 @@
     keyserver: hkp://ha.pool.sks-keyservers.net:80 
     id: 58118E89F3A912897C070ADBF76221572C52609D 
 
-- name: update repositories
-  package:
-    update_cache: yes
-
 - name: install docker-engine
   package:
     name: docker-engine
-    state: latest 
+    state: present 
 
 - name: install docker-py
   pip:
     name: docker-py
-    state: latest
+    state: present
 
 - name: install docker-compose
   pip:
