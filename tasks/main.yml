@@ -58,11 +58,11 @@
     groups: docker
     append: yes
 
-- name: initiating docker service
-  systemd:
-    name: docker
-    state: started
-    enabled: true
+#- name: initiating docker service
+#  systemd:
+#    name: docker
+#    state: started
+#    enabled: true
 
 #Momento fascista
 - name: installing docker-py
