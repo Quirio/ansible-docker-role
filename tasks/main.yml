@@ -1,7 +1,7 @@
 ---
-- name: upgrade repositories
-  package:
-    upgrade: dist
+#- name: upgrade repositories
+#  package:
+#    upgrade: dist
 
 - name: if not exist docker.list
   file:
