@@ -6,7 +6,8 @@
     - docker
   tasks:
     - name: check docker_list
-      path: /etc/apt/sources.list.d/docker.list
+      file:
+        path: /etc/apt/sources.list.d/docker.list
     
     - name: check if repository is added
       command: grep  /etc/apt/sources.list.d/docker.list -e "deb https://apt.dockerproject.org/repo ubuntu-xenia main"
